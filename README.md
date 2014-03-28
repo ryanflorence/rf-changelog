@@ -55,8 +55,6 @@ By default, it will look for commit messages with subjects that match:
 But you can supply a regex with `-m [message]`, for example:
 
 ```sh
-$ changelog -m \\[a\\]|\\[c\\]|[\\f\\]|\\[r\\]
+$ changelog -m '\[a\]|\[c\]|[\f\]|\[r\]'
 ```
-
-It looks so terrible because that string gets sent to `new RegExp(match)`.
 
