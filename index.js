@@ -82,7 +82,7 @@ module.exports = function(argv, callback) {
 
   function lastSemverTag(tags) {
     var match = tags.reverse().reduce(function(match, tag) {
-      return match ? match : tag.match(/v?[0-9]\.[0-9]\.[0-9](.+)?/);
+      return match ? match : tag.match(/v?[0-9]+\.[0-9]+\.[0-9]+(.+)?/);
     }, false);
     if (!match) {
       console.log('no semver tag found, exiting');
