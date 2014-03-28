@@ -32,7 +32,7 @@ module.exports = function(argv, callback) {
     'will prevent writing a file and print results to stdout',
     false
   );
-  program.parse(process.argv);
+  program.parse(argv);
 
   var commitRegex = new RegExp(program.message);
 
