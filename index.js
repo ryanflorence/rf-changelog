@@ -20,7 +20,7 @@ module.exports = function(argv, callback) {
   program.option(
     '-m, --message [message]',
     'regex to match commit messages to be included in the changelog',
-    '\\[added\\]|\\[removed\\]|\\[changed\\]'
+    '\\[added\\]|\\[removed\\]|\\[changed\\]|\\[fixed\\]'
   );
   program.option(
     '-o, --out [path]',
@@ -98,3 +98,4 @@ module.exports = function(argv, callback) {
     };
   }
 };
+
