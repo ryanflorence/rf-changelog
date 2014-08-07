@@ -25,7 +25,7 @@ module.exports = function(argv, callback) {
   program.option(
     '-o, --out [path]',
     'file to write changelog to',
-    'CHANGELOG'
+    'CHANGELOG.md'
   );
   program.option(
     '-s, --stdout',
@@ -49,7 +49,9 @@ module.exports = function(argv, callback) {
   });
 
   function writeLog(log) {
-    var src = program.title+'\n'+new Date().toUTCString()+'\n\n';
+    var title = program.title+' - '+new Date().toUTCString();
+    var dashes = title.replace(/./g, '-');
+    var src = title+'\n'+dashes+'\n\n';
     src += log;
     if (fs.existsSync(program.out)) {
       src += '\n\n\n';
