@@ -1,3 +1,10 @@
+v0.3.1 - Thu, 07 Aug 2014 21:15:23 GMT
+--------------------------------------
+
+- [8e53d72](../../commits/8e53d72) [changed] now with lists and links!
+- [afb3231](../../commits/afb3231) [changed] to markdown
+
+
 v0.3.0 - Thu, 07 Aug 2014 20:57:28 GMT
 --------------------------------------
 
