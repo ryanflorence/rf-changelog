@@ -39,7 +39,7 @@ module.exports = function(argv, callback) {
   latestTag(function(tag) {
     changelog(tag, function(log) {
       log = log.map(function(subject) {
-        return subject.replace(/^([a-f|0-9]+)/, '[$1](../../commits/$1)')
+        return subject.replace(/^([a-f|0-9]+)/, '[$1](../../commit/$1)')
       });
       log = '- '+log.join('\n- ');
       if (program.stdout) {
