@@ -1,7 +1,8 @@
 rf-changelog
 ============
 
-Creates simple changelogs from your git log.
+Creates simple changelogs from your git commits in markdown with links
+when viewed from github.
 
 ```sh
   Usage: changelog [options]
@@ -25,24 +26,27 @@ $ npm install rf-changelog
 ## Example
 
 ```sh
+# ensure you have a semver tag in the past, and then...
 $ changelog -t v2.1.0
 ```
 
 Output:
 
+The commit hash becomes a link in 
+
 ```
-v2.1.0
-Fri, 28 Mar 2014 05:54:33 GMT
+v2.1.0 - Fri, 28 Mar 2014 05:54:33 GMT
+--------------------------------------
 
-1685ade [added] some new stuff
-02aa80f [fixed] busted things
+[1685ade](../../1685ade) [added] some new stuff
+[02aa80f](../../02aa80f) [fixed] busted things
 
 
-v2.0.10
-Fri, 21 Mar 2014 02:31:10 GMT
+v2.0.10 - Fri, 21 Mar 2014 02:31:10 GMT
+---------------------------------------
 
-1685ade [removed] terrible apis
-02aa80f [changed] default options for stuff
+[1685ade](../../1685ade) [removed] terrible apis
+[02aa80f](../../02aa80f) [changed] default options for stuff
 ```
 
 By default, it will look for commit messages with subjects that match:
