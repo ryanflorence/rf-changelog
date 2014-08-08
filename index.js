@@ -90,7 +90,7 @@ module.exports = function(argv, callback) {
       return match ? match : tag.match(/v?[0-9]+\.[0-9]+\.[0-9]+(.+)?/);
     }, false);
     if (!match) {
-      console.log('no semver tag found, exiting');
+      console.log('no previous semver tag found, tag a commit in the past and try again');
       process.exit();
     }
     return match[0];
