@@ -32,7 +32,7 @@ $ changelog -t v2.1.0
 
 Output:
 
-The commit hash becomes a link in 
+The commit hash becomes a link to the commit when viewed on github.
 
 ```
 v2.1.0 - Fri, 28 Mar 2014 05:54:33 GMT
