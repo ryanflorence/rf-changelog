@@ -85,15 +85,36 @@ module.exports = function(argv, callback) {
     return next(lastSemverTag(tagString.split('\n')));
   }
 
+  function splitTag(tag) {
+    return tag.replace(/^v/, '').split('.').map(function(n) {
+      return parseInt(n);
+    });
+  }
+
+  function sortTagsNumerically(a, b) {
+    a = splitTag(a);
+    b = splitTag(b);
+    if (a[0] > b[0])
+      return -1;
+    else if (a[0] === b[0] && a[1] > b[1])
+      return -1;
+    else if (a[0] === b[0] && a[1] === b[1] && a[2] > b[2])
+      return -1;
+    else
+      return 1;
+  };
+
+  function isSemver(tag) {
+    return tag.match(/v?[0-9]+\.[0-9]+\.[0-9]+(.+)?/);
+  }
+
   function lastSemverTag(tags) {
-    var match = tags.reverse().reduce(function(match, tag) {
-      return match ? match : tag.match(/v?[0-9]+\.[0-9]+\.[0-9]+(.+)?/);
-    }, false);
+    var match = tags.filter(isSemver).sort(sortTagsNumerically)[0];
     if (!match) {
       console.log('no previous semver tag found, tag a commit in the past and try again');
       process.exit();
     }
-    return match[0];
+    return match;
   }
 
   function execHandler(cb) {
