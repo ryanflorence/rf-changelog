@@ -2,16 +2,30 @@
   "name": "rf-changelog",
   "version": "0.4.0",
   "description": "creates changelogs for git projects",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
     "changelog": "bin/changelog"
   },
   "scripts": {
-    "test": "echo \"no test specified, folk\" && exit 0"
+    "prepublish": "babel src --out-dir lib",
+    "test": "mocha"
   },
   "author": "Ryan Florence <rpflorence@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "2.1.0"
+    "child-process-promise": "^1.0.2",
+    "colors": "^1.0.3",
+    "commander": "2.1.0",
+    "fs-promise": "^0.3.1",
+    "semver": "^4.3.3"
+  },
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "chai": "^2.2.0",
+    "chai-as-promised": "^4.3.0",
+    "mocha": "^2.2.1",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0",
+    "tmp": "0.0.25"
   }
 }
