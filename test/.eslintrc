@@ -1,0 +1,7 @@
+{
+  "env": {
+    "mocha": true,
+    "chai": true,
+    "sinon": true
+  }
+}

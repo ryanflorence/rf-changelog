@@ -25,9 +25,31 @@ $ npm install rf-changelog
 
 ## Example
 
+Command line
+
 ```sh
 # ensure you have a semver tag in the past, and then...
 $ changelog -t v2.1.0
+```
+
+Node
+
+```javascript
+var changelog = require('rf-changelog');
+
+options = {
+  stdout: false,
+  out: 'CHANGELOG.md',
+  title: 'v1.2.3',
+  message: /\[(added|removed|changed|fixed)\]/,
+  formatter: require('rf-changelog/lib/formatters/basic')
+};
+
+// Returns a Promise
+changelog(options)
+  .catch(function(err) {
+    // error handling
+  });
 ```
 
 Output:

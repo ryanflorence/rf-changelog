@@ -1,3 +1,16 @@
 #!/usr/bin/env node
-require('../index')(process.argv);
+/* eslint no-var: 0, no-process-exit: 0 */
+require('colors');
+var parseCliArgs = require('../lib/parse-cli-args').default;
+var changelog = require('../lib');
+
+var options = parseCliArgs(process.argv);
+options.formatter = require('../lib/formatters/' + options.formatter);
+
+changelog(options)
+  .catch(function(err) {
+    console.log(err.message.red);
+    process.exit(1);
+  });
+
 
