@@ -2,6 +2,10 @@
   "name": "rf-changelog",
   "version": "0.4.0",
   "description": "creates changelogs for git projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanflorence/rf-changelog"
+  },
   "main": "index.js",
   "bin": {
     "changelog": "bin/changelog"
